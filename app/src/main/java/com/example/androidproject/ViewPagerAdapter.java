@@ -24,6 +24,8 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
                     return new FragmentCam();
                 case 2:
                     return new FragmentAdopt();
+                case 3:
+                    return new FragmentDonation();
                 default:
                     return null;
             }
