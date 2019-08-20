@@ -34,13 +34,6 @@ public class FragmentsBots extends Fragment {
     EditText editText;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        //loadMessages();
-
-    }
-
-    @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         //linearlist();
         loadMessages();
