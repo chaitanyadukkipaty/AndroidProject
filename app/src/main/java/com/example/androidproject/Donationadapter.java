@@ -1,10 +1,14 @@
 package com.example.androidproject;
 
+import android.app.LauncherActivity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,8 +34,16 @@ public class Donationadapter extends RecyclerView.Adapter<Donationadapter.MyHold
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder myholder, int i) {
+        final int f = i;
         myholder.ngoname.setText(ngos.get(i).getngoname());
         myholder.ngolocation.setText(ngos.get(i).getngolocation());
+        myholder.relativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context,"You clicked "+ngos.get(f).getngoname(),Toast.LENGTH_LONG).show();
+            }
+        });
+
     }
 
     @Override
@@ -43,11 +55,12 @@ public class Donationadapter extends RecyclerView.Adapter<Donationadapter.MyHold
     class MyHolder extends RecyclerView.ViewHolder {
 
         TextView ngoname, ngolocation;
-
+        RelativeLayout relativeLayout;
         private MyHolder(@NonNull View itemView) {
             super(itemView);
             ngoname = itemView.findViewById(R.id.ngoname);
             ngolocation = itemView.findViewById(R.id.ngolocation);
+            relativeLayout = itemView.findViewById(R.id.donationlayout);
         }
     }
 }
