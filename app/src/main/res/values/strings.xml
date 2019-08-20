@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">StrayNoMore</string>
+    <string name="message_text">Texty Text</string>
+    <string name="message_time">09:12pm</string>
+    <string name="type_query">Type a query</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
     <string name="tab_text_3">Tab 3</string>
