@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#00A67C</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorPrimaryDarker">#004d40</color>
-    <color name="colorAccent">#304ffe</color>
+    <color name="colorPrimary">#bd2500</color>
+    <color name="colorPrimaryDark">#991f02</color>
+    <color name="colorPrimaryDarker">#6b1500</color>
+    <color name="colormsgsend">#dcf8c6</color>
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="colorIcon">#bd2500</color>
+    <color name="colorbackground">#ece5dd</color>
     <color name="colorChat">#202020</color>
     <color name="colorDoctor">#0097a7</color>
     <color name="colorDoctorDark">#006064</color>

@@ -20,7 +20,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/ngoname"
                 android:text="Roshan"
-                android:textColor="#690101"
+                android:textColor="#000000"
                 android:textSize="20sp"
                 />
             <TextView
@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/ngolocation"
                 android:text="Jb Nagar"
-                android:textColor="#690101"
+                android:textColor="#000000"
                 android:textSize="20sp"
                 android:layout_alignParentEnd="true"
                 />
