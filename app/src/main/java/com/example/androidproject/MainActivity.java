@@ -1,5 +1,7 @@
 package com.example.androidproject;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 
 import com.google.android.material.appbar.AppBarLayout;
@@ -8,6 +10,8 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
@@ -26,7 +30,7 @@ import com.example.androidproject.ViewPagerAdapter;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
+    private static final int requestCode = 100;
     TabLayout tabLayout;
     ViewPager viewPager;
     Toolbar toolbar;
@@ -39,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.view_pager);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED)
+            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.CAMERA}, requestCode);
 
 
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
