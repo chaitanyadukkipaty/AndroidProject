@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED)
-            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.CAMERA}, requestCode);
+            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 2);
 
 
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
