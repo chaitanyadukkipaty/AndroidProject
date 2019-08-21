@@ -86,7 +86,7 @@ public class FragmentsBots extends Fragment {
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(list);
             objectOutputStream.close();
-            Log.i("Messages", list.get(list.size()-1).getText());
+            //Log.i("Messages", list.get(list.size()-1).getText());
         } catch (FileNotFoundException e){
             e.printStackTrace();
         } catch (IOException e) {
