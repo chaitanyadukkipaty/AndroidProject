@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
@@ -65,6 +66,9 @@ public class signin_fragment extends Fragment {
                 if(sigin_email.equals("test")  && signin_password.equals("test")){
                     Intent intent = new Intent(getActivity(),MainActivity.class);
                     startActivity(intent);
+                }
+                else {
+                    Toast.makeText(getActivity(),"Wrong Username or Password",Toast.LENGTH_LONG).show();
                 }
             }
         });

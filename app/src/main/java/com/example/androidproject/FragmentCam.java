@@ -20,6 +20,7 @@ import java.io.ByteArrayOutputStream;
 
 public class FragmentCam extends Fragment {
     ImageButton sendButton;
+    ImageButton sendServer;
     ImageView imageView;
     private static final int CAPTURE_PICCODE = 989;
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
@@ -27,7 +28,7 @@ public class FragmentCam extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_cam,container,false);
         sendButton = (ImageButton) rootView.findViewById(R.id.maincamera);
         imageView = (ImageView) rootView.findViewById(R.id.imageView);
-
+        sendServer = (ImageButton) rootView.findViewById(R.id.cam_send);
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,6 +37,13 @@ public class FragmentCam extends Fragment {
                         CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
             }
         });
+
+        sendServer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+              Toast.makeText(getActivity(),"Image Sent to Server", Toast.LENGTH_LONG).show();            }
+        });
+
         return rootView;
     }
 

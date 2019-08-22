@@ -77,8 +77,8 @@ public class MainActivity extends AppCompatActivity {
                 //Snackbar.make(constraintLayout,"You Logged Out",Snackbar.LENGTH_LONG).show();
                 return true;
             case R.id.account_menu:
-//                Intent intent = new Intent(this, RegisterActivity.class);
-//                startActivity(intent);
+                Intent nintent = new Intent(this, MyAccount.class);
+                startActivity(nintent);
                 Toast.makeText(this, "You Clicked Account",Toast.LENGTH_LONG).show();
                 return true;
             default:

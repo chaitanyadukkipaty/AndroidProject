@@ -37,7 +37,7 @@ public class FragmentAdopt extends Fragment {
 
     private void linearlist(){
         list = new ArrayList<Adopt>();
-        list.add(new Adopt("Fuffy","Lolwa"));
-        list.add(new Adopt("Sonwy","Lul"));
+        list.add(new Adopt("Fuffy","PETA India"));
+        list.add(new Adopt("Sonwy","Wild World"));
     }
 }

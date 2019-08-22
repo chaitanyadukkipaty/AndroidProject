@@ -33,7 +33,7 @@ public class FragmentDonation extends Fragment {
 
     private void linearlist(){
         list = new ArrayList<NGO>();
-        list.add(new NGO("Kyle","Dadar"));
-        list.add(new NGO("Anil","JBnagar"));
+        list.add(new NGO("PETA India","Dadar"));
+        list.add(new NGO("Wild World","JBnagar"));
     }
 }
