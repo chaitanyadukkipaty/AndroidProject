@@ -2,9 +2,11 @@ package com.example.androidproject;
 
 import android.app.LauncherActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -18,6 +20,7 @@ import java.util.ArrayList;
 public class Donationadapter extends RecyclerView.Adapter<Donationadapter.MyHolder> {
     Context context;
     ArrayList<NGO> ngos;
+    private FrameLayout parentframeLayout;
 
     public Donationadapter(Context context, ArrayList<NGO> ngos) {
         this.context = context;
@@ -28,7 +31,7 @@ public class Donationadapter extends RecyclerView.Adapter<Donationadapter.MyHold
     @Override
     public MyHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(context).inflate(R.layout.donation_list, viewGroup, false);
-
+        parentframeLayout = view.findViewById(R.id.view_pager);
         return new MyHolder(view);
     }
 
@@ -41,6 +44,10 @@ public class Donationadapter extends RecyclerView.Adapter<Donationadapter.MyHold
             @Override
             public void onClick(View view) {
                 Toast.makeText(context,"You clicked "+ngos.get(f).getngoname(),Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(context,donation_dialog.class);
+                intent.putExtra("ngoname",ngos.get(f).getngoname());
+                intent.putExtra("ngolocation", ngos.get(f).getngolocation());
+                context.startActivity(intent);
             }
         });
 

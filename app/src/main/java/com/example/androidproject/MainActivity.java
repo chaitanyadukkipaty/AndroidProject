@@ -1,6 +1,7 @@
 package com.example.androidproject;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 
@@ -10,6 +11,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -34,11 +36,12 @@ public class MainActivity extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager viewPager;
     Toolbar toolbar;
+    ConstraintLayout constraintLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        constraintLayout = findViewById(R.id.main_constraintLayout);
         tabLayout = findViewById(R.id.tabs);
         viewPager = findViewById(R.id.view_pager);
         toolbar = findViewById(R.id.toolbar);
@@ -68,9 +71,14 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.logout_menu:
+                Intent intent = new Intent(this, RegisterActivity.class);
+                startActivity(intent);
                 Toast.makeText(this, "You Clicked Logout",Toast.LENGTH_LONG).show();
+                //Snackbar.make(constraintLayout,"You Logged Out",Snackbar.LENGTH_LONG).show();
                 return true;
             case R.id.account_menu:
+//                Intent intent = new Intent(this, RegisterActivity.class);
+//                startActivity(intent);
                 Toast.makeText(this, "You Clicked Account",Toast.LENGTH_LONG).show();
                 return true;
             default:
