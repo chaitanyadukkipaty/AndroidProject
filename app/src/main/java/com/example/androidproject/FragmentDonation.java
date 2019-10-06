@@ -1,6 +1,7 @@
 package com.example.androidproject;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +44,10 @@ public class FragmentDonation extends Fragment {
 
         donationadapter = new Donationadapter(getActivity(),this.list);
         recyclerView.setAdapter(donationadapter);
+        ipaddress ip = new ipaddress();
+        url = ip.getIp();
+        url = url+"ngolist";
+        Log.d("url",url);
         return rootView;
     }
 

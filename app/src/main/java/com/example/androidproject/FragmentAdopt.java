@@ -1,6 +1,7 @@
 package com.example.androidproject;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +26,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class FragmentAdopt extends Fragment {
-    private String url = "http://192.168.43.77:8081/adpotlist";
+    private String url ;
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     Adoptadpter adoptadpter;
@@ -43,21 +44,24 @@ public class FragmentAdopt extends Fragment {
         adoptadpter = new Adoptadpter(getActivity(),this.list);
         recyclerView.setAdapter(adoptadpter);
         recyclerView.smoothScrollToPosition(adoptadpter.getItemCount());
-
+        ipaddress ip = new ipaddress();
+        url = ip.getIp();
         return rootView;
     }
 
     public void getdata(){
         list = new ArrayList<Adopt>();
         RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
+        String dataurl = url+"adoptlist";
+        Log.d("url",dataurl);
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, dataurl, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 try {
                     for (int i = 0; i < response.length(); i++) {
                         JSONObject adoptdata = response.getJSONObject(i);
                         String ngo_name = adoptdata.getString("found_by_ngo");
-                        String img_url = adoptdata.getString("img_destination");
+                        String img_url = url+ adoptdata.getString("img_name");
                         list.add(new Adopt("Doggo",ngo_name, img_url));
                     }
                 } catch (JSONException e) {
@@ -67,7 +71,7 @@ public class FragmentAdopt extends Fragment {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getActivity(),"Data not loaded",Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(),"Data not loaded adopt",Toast.LENGTH_LONG).show();
             }
         }){
 

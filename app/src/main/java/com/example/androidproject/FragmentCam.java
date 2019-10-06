@@ -62,7 +62,7 @@ import static com.android.volley.VolleyLog.TAG;
 
 
 public class FragmentCam extends Fragment {
-    private String url = "http://192.168.43.77:8081/upload";
+    private String url ;
     private String temp;
     private static final int flash_auto = 0;
     private static final int flash_on = 1;
@@ -90,6 +90,9 @@ public class FragmentCam extends Fragment {
         cam_Landmark = (EditText) rootView.findViewById(R.id.cam_Landmark);
         flash_mode = flash_auto;
         flash.setBackgroundResource(R.drawable.flash_auto);
+        ipaddress ip = new ipaddress();
+        url = ip.getIp();
+        url = url+"upload";
         return rootView;
     }
 
